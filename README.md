@@ -112,7 +112,7 @@ craftweave.exe --help
 | `--quiet` | 不打印进度行（对拍用），**进度只走 stderr**，不影响 stdout 的结果 |
 | `--strict` | 强制要求未知参数时直接报错退出，默认只会警告并继续执行任务（便于发现误拼） |
 
-技能参数见`data/actions.csv`第一列（`basicTouch` 加工、`preparatoryTouch` 坯料加工、`groundwork` 坯料制作、`trainedPerfection` 工匠的绝技…）。
+技能名见`data/actions.csv`第一列（`basicTouch` 加工、`preparatoryTouch` 坯料加工、`groundwork` 坯料制作、`trainedPerfection` 工匠的绝技…）。
 
 ## 实用例
 

@@ -22,7 +22,7 @@ $root = $PSScriptRoot
 
 $kit = Join-Path $root '..\.util\toolchain\w64devkit\bin'
 if (-not (Test-Path $kit)) {
-    Write-Error "toolchain not found: $kit  (expected at Workplace\.util\toolchain\w64devkit\bin)"
+    Write-Error "toolchain not found: $kit"
     exit 2
 }
 $env:PATH = "$kit;$env:PATH"
