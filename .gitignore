@@ -1,0 +1,9 @@
+# 构建产物（用 build.ps1 或 CMake 生成，不入库）
+build/
+*.exe
+*.o
+*.obj
+*.a
+
+# 测试/回归运行时的临时输出
+tests/_last.out

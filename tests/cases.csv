@@ -1,0 +1,21 @@
+# 搜索回归题面（tests/cases.csv）
+#
+# 用法：这些是"端到端搜索"的回归题 —— 引擎单测在 tests/test_main.cpp，
+#       本文件由 CLI 驱动（搜索逻辑目前仍在 src/main.cpp 内，尚未拆出 solver）。
+#
+# 每行跑一次：
+#   craftweave --lv=<lv> --rlv=<rlv> --cm=<cm> --ctrl=<ctrl> --cp=<cp> ^
+#              --prog=<prog> --qual=<qual> --dur=<dur> --qabs=<start_qual> ^
+#              --mode=<mode> --depth=<depth> --perlayer=<perlayer> [--ban=<ban>]
+# 然后比对 stdout 的 STEPS 是否等于 expect_steps。
+#
+# ★ perlayer 必须写进每行：它是"结论可信度"的一部分（见 README「边界」）。
+#   同一道题在 100 万上限下会得到 20 步、200 万才是 19 步 —— 所以期望值必须连同量级一起记。
+#
+# 以下期望值均已通过游戏内实测验证（2026-10-06）。
+name,lv,rlv,cm,ctrl,cp,prog,qual,dur,start_qual,mode,depth,perlayer,ban,expect_steps,note
+main-rlv770,100,770,5878,5623,749,10040,21200,70,10600,fixed,20,2000000,"rapidSynthesis,hastyTouch,daringTouch",19,main recipe (50% start quality); 19 needs perlayer>=2M
+main-rlv770-1M,100,770,5878,5623,749,10040,21200,70,10600,fixed,20,1000000,"rapidSynthesis,hastyTouch,daringTouch",20,same case at 1M: expect 20 -- demonstrates perlayer matters
+branch2-cp649,100,770,5878,5508,649,10040,21200,70,10600,fixed,20,1000000,"rapidSynthesis,hastyTouch,daringTouch",20,branch2: control 5508 / CP 649
+branch6-q8682,100,770,5878,5623,749,10040,21200,70,8682,fixed,24,3000000,"rapidSynthesis,hastyTouch,daringTouch",22,branch6: start quality 8682
+dur35-s1,100,770,5878,5623,749,5622,14204,35,0,fixed,20,1000000,"rapidSynthesis,hastyTouch,daringTouch",20,dur35 scenario1: durability 35 only

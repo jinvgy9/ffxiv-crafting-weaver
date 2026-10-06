@@ -1,0 +1,12 @@
+# 统一换行：仓库内与检出后一律 LF。
+#   不加这条的话，Windows 上 core.autocrlf 默认会把 CRLF 写回工作区，
+#   于是"什么都没改"的文件在 git 眼里全变了，diff 一片红。
+* text=auto eol=lf
+
+# 明确二进制，不参与换行转换
+*.exe  binary
+*.dll  binary
+*.png  binary
+*.jpg  binary
+*.ico  binary
+*.zip  binary
